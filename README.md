@@ -50,11 +50,36 @@ print(shitf(sad_string))
 ```
 
 ### API Request Call
+**NOTE**: When sending body data, there is no need to `URI-encode`
+the given string. The only time this is required is whenever
+query strings are used.
+
+The following code examples use `python 3` and
+the [requests](http://docs.python-requests.org/en/master/) library.
+
+- With body data:
 ```python
 import requests
 
-# This URL doesn't actually work, since I'm way too lazy to actually deploy the web API
-r = requests.post('https://www.shitf.com/api/shitf/', data = {'data':'some SAD, non-shitfified string'})
+r = requests.post('localhost:3000/api/shitf/', data = {'messages':'some SAD, non-shitfified string'})
+
+print(r.json())
+```
+
+- With query strings:
+```python
+import requests
+
+r = requests.post('localhost:3000/api/shitf?messages=some+SAD%2C+non-shitfified+string')
+
+print(r.json())
+```
+
+- With both body data & query strings:
+```python
+import requests
+
+r = requests.post('localhost:3000/api/shitf?messages=some+SAD%2C+non-shitfified+string', data = {'messages':'some other SAD, non-shitfified string'})
 
 print(r.json())
 ```
