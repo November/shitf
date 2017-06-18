@@ -17,18 +17,20 @@ into a nonsensical glorious piece of shit.
 `Shitf` comes as both a library that can be directly
 imported and used in `Python 3`, and as a RESTful web
 API that can be easily deployed for maximum developer
-shit-posting. These respective revolutionary, disruptive,
-and innovative forms can be simplified to `SaaS` (Shitf as
-a service) and `SaaF` (Shitf as a function).
+shit-posting velocity. These respective revolutionary,
+disruptive, and innovative forms can be simplified to
+`SaaS` (Shitf as a Service) and `SaaF` (Shitf as a
+Function).
 
 ## u 4 real
 Yup.
 
 ## y u do dis
 Some say that it's to make fun of the JavaScript
-ecosystem, and the prevalence of terrible
-`X-as-a-service` providers. To other people, that it's
-meant as a statement about the wonders of modern web development.
+ecosystem. Others, at the prevalence of terrible
+`X-as-a-Service` providers flooding through recently.
+For the rest, as a statement about the wonders of modern
+web development.
 
 In the end, it's really down to trying to provide a
 library that can contribute greatly to society, providing
@@ -51,6 +53,7 @@ print(shitf(sad_string))
 ```python
 import requests
 
+# This URL doesn't actually work, since I'm way too lazy to actually deploy the web API
 r = requests.post('https://www.shitf.com/api/shitf/', data = {'data':'some SAD, non-shitfified string'})
 
 print(r.json())
@@ -63,6 +66,7 @@ print(r.json())
 For now:
 - git clone the repo
 - See usage
+
 Later:
 - pip install shitf
 
