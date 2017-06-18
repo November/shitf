@@ -37,7 +37,7 @@ library that can contribute greatly to society, providing
 real value-add to the furthering of humanity's goals as a
 species.
 
-Also, I was bored on the toilet.
+Also, I was bored on the toilet. Inspiration [here](https://www.reddit.com/r/mildlyinteresting/comments/5wk5zh/this_shitf_key/deb22pb/).
 
 ## Usage
 ### Direct Function Usage
