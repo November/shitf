@@ -3,11 +3,32 @@ var express = require('express');
 var router = express.Router();
 const helper = require('../helper');
 
-/* GET home page. */
+const HTTP_RESPONSE_CODE_BAD_RESPONSE = 400;
+
+router.get('/shitf', function (req, res, next) {
+
+    if (req.query === undefined || req.query === null || req.query.messages === undefined || req.query.messages === null) {
+        res.sendStatus(HTTP_RESPONSE_CODE_BAD_RESPONSE);
+    }
+
+    var messages = [];
+
+    if(!Array.isArray(req.query.messages)) {
+        req.query.messages = [req.query.messages];
+    }
+
+    req.query.messages = req.query.messages.map(decodeURI);
+    messages.push(...req.query.messages);
+
+    messages = messages.map(decodeURI);
+
+    res.json({'messages': helper.shitf(messages)});
+});
+
 router.post('/shitf', function(req, res, next) {
     var messages = [];
     if (req.query.messages === undefined && req.body.messages === undefined) {
-        res.sendStatus(400);
+        res.sendStatus(HTTP_RESPONSE_CODE_BAD_RESPONSE);
     }
     else if (req.query.messages !== undefined && req.body.messages !== undefined) {
         // Messages in both the query string and the body

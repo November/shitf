@@ -80,12 +80,12 @@ describe('API: Shitf POST inside body', function() {
     });
 });
 
-describe('API: Shitf POST via Query Strings', function() {
+describe('API: Shitf GET via Query Strings', function() {
     // Tests no query string key/values
     describe("No query string keys/values", function() {
         it("Should give a 400 error code", function() {
             return request(app)
-                .post('/api/shitf')
+                .get('/api/shitf')
                 .expect(400);
         });
     });
@@ -94,7 +94,7 @@ describe('API: Shitf POST via Query Strings', function() {
     describe("Incorrect query string keys", function() {
         it("Should give a 400 error code", function() {
             return request(app)
-                .post('/api/shitf?wrongKey0=something+wrong&wrongKey1=something+else+wrong')
+                .get('/api/shitf?wrongKey0=something+wrong&wrongKey1=something+else+wrong')
                 .expect(400);
         });
     });
@@ -103,7 +103,7 @@ describe('API: Shitf POST via Query Strings', function() {
     describe("Correct query string key with empty value", function() {
         it("Should give a 200 error code, correct content type, and an empty string", function() {
             return request(app)
-                .post('/api/shitf?messages')
+                .get('/api/shitf?messages')
                 .expect(200)
                 .expect('Content-Type', 'application/json; charset=utf-8')
                 .expect({messages: [""]});
@@ -114,7 +114,7 @@ describe('API: Shitf POST via Query Strings', function() {
     describe("Correct query string key with a single sentence", function() {
         it("Should give a 200 error code, correct content type, and 35 💩s", function() {
             return request(app)
-                .post('/api/shitf?messages=a+normal+sentence+with+numbers+5123')
+                .get('/api/shitf?messages=a+normal+sentence+with+numbers+5123')
                 .expect(200)
                 .expect('Content-Type', 'application/json; charset=utf-8')
                 .expect({messages: [
@@ -127,7 +127,7 @@ describe('API: Shitf POST via Query Strings', function() {
     describe("Correct query string key with multiple sentences", function() {
         it("Should give a 200 error code, correct content type, and 3, 10, and 35 💩s in an array", function() {
             return request(app)
-                .post('/api/shitf?messages=abc&messages=0123456789&messages=a+normal+sentence+with+numbers+5123')
+                .get('/api/shitf?messages=abc&messages=0123456789&messages=a+normal+sentence+with+numbers+5123')
                 .expect(200)
                 .expect('Content-Type', 'application/json; charset=utf-8')
                 .expect({messages: [
@@ -142,7 +142,7 @@ describe('API: Shitf POST via Query Strings', function() {
     describe("Correct query string key with multiple URI-encoded sentences", function() {
         it("Should give a 200 error code, correct content type, and 2, and 12 💩s in an array", function() {
             return request(app)
-                .post('/api/shitf?messages=%202&messages=Hello%20G%C3%BCnter')
+                .get('/api/shitf?messages=%202&messages=Hello%20G%C3%BCnter')
                 .expect(200)
                 .expect('Content-Type', 'application/json; charset=utf-8')
                 .expect({messages: [

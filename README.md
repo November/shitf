@@ -47,6 +47,8 @@ from shitf import shitf
 sad_string = "SAD, non-shitfified string"
 
 print(shitf(sad_string))
+
+# Outputs: '💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩'
 ```
 
 ### API Request Call
@@ -61,27 +63,33 @@ the [requests](http://docs.python-requests.org/en/master/) library.
 ```python
 import requests
 
-r = requests.post('localhost:3000/api/shitf/', data = {'messages':'some SAD, non-shitfified string'})
+r = requests.post('http://localhost:3000/api/shitf/', data = {'messages':'some SAD, non-shitfified string'})
 
 print(r.json())
+
+# Outputs: {'messages': ['💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩']}
 ```
 
 - With query strings:
 ```python
 import requests
 
-r = requests.post('localhost:3000/api/shitf?messages=some+SAD%2C+non-shitfified+string')
+r = requests.get('http://localhost:3000/api/shitf?messages=some+SAD%2C+non-shitfified+string')
 
 print(r.json())
+
+# Outputs: {'messages': ['💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩']}
 ```
 
 - With both body data & query strings:
 ```python
 import requests
 
-r = requests.post('localhost:3000/api/shitf?messages=some+SAD%2C+non-shitfified+string', data = {'messages':'some other SAD, non-shitfified string'})
+r = requests.post('http://localhost:3000/api/shitf?messages=some+SAD%2C+non-shitfified+string', data = {'messages':'some other SAD, non-shitfified string'})
 
 print(r.json())
+
+# Outputs: {'messages': ['💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩', '💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩']}
 ```
 
 ## Dependencies

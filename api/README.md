@@ -5,6 +5,7 @@ All commands should be run in this `api` directory.
 
 ## Setup
 ```sh
+npm install -g nodemon
 npm install
 ```
 
